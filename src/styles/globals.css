@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+    html,body,#__next{
+        margin:0;
+        height:100%;
+        width:100%
+     }
+     #__next{
+         @apply flex flex-col lg:grid lg:grid-cols-12
+     }
+}
+
+@layer components{
+    .bgPaper{
+        @apply p-5 shadow-xl rounded-md bg-white;
+    }
+}
