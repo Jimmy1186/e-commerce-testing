@@ -1,33 +1,19 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import { useRef, useEffect, useCallback } from "react";
 import React from "react";
 import { trpc } from "../utils/trpc";
-const Redirect: NextPage = () => {
+const Redirect: NextPage = (props:any) => {
   const myEl = useRef(null);
-  const payMutation = trpc.useMutation(["example.hello"]);
-  const onPay = useCallback(() => {
-    payMutation.mutate({
-      text: "sda",
-    });
-  
-  }, []);
-
-onPay()
-
   useEffect(() => {
-     
-    if(payMutation.data?.htm){
-(myEl.current as unknown as HTMLElement).getElementsByTagName("form")[0]?.submit();
-    }
-  
+    (myEl.current as unknown as HTMLElement).getElementsByTagName("form")[0]?.submit();
   }, []);
+  
 
-if(payMutation.isLoading){
-  return <>wait</>
-}
+
+
   return (
     <>
-      <div ref={myEl} dangerouslySetInnerHTML={{ __html: payMutation.data?.htm.toString() }} />
+      <div ref={myEl} dangerouslySetInnerHTML={{ __html: props.result.htm }} />
     </>
   );
 };
@@ -35,3 +21,13 @@ if(payMutation.isLoading){
 
 
 export default Redirect;
+
+export const getServerSideProps: GetServerSideProps = async(context)=> {
+
+     const result = await fetch(`${process.env.API_URL}/api/PaymentDoneServer`).then(res=>{return res})
+     console.log(result)
+    
+
+
+  return { props: { result:JSON.stringify(result) } };
+}

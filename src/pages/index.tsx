@@ -24,7 +24,7 @@ const Home: NextPage = () => {
   }, []);
 
   useEffect(() => {
-     
+  
     if(payMutation.data?.htm){
 (myEl.current as unknown as HTMLElement).getElementsByTagName("form")[0]?.submit();
     }
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
 
 
 if(payMutation.data){
-  return <div ref={myEl} dangerouslySetInnerHTML={{ __html: payMutation.data?.htm.toString() }} />
+  return <div ref={myEl} dangerouslySetInnerHTML={{ __html: payMutation.data.htm}} />
 }
   return (
     <>
@@ -44,7 +44,7 @@ if(payMutation.data){
       </Head>
 
       <main className="w-full h-full bg-stone-100 flex flex-col p-3">
-        <button onClick={() => onPay()}>pay here</button>
+        <button onClick={() =>onPay()}>pay here</button>
         
         <div className="bgPaper  h-64 "></div>
       </main>
