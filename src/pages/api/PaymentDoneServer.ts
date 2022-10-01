@@ -8,20 +8,20 @@ export default async function handler(
 ) {
   console.log(req.body)
 
-  const {
-    MerchantID,
-    MerchantTradeNo,
-    StoreID,
-    RtnCode,
-    RtnMsg,
-    TradeNo,
-    TradeAmt,
-    PaymentDate,
-    PaymentType,
-    PaymentTypeChargeFee,
-    TradeDate,
-    SimulatePaid,
-  } = req.body;
+  // const {
+  //   MerchantID,
+  //   MerchantTradeNo,
+  //   StoreID,
+  //   RtnCode,
+  //   RtnMsg,
+  //   TradeNo,
+  //   TradeAmt,
+  //   PaymentDate,
+  //   PaymentType,
+  //   PaymentTypeChargeFee,
+  //   TradeDate,
+  //   SimulatePaid,
+  // } = req.body;
 
 
 

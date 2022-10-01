@@ -9,9 +9,7 @@
         height:100%;
         width:100%
      }
-     #__next{
-         @apply flex flex-col lg:grid lg:grid-cols-12
-     }
+
 }
 
 @layer components{
