@@ -60,8 +60,9 @@ function Navbar() {
 
       <div
         className={`
-      fixed w-5/6 h-screen bg-stone-800 z-40  flex-col gap-10 transition-all hidden
-      ${navbar ? "left-0 opacity-100 block" : "-left-72 opacity-0"}
+      fixed w-5/6 h-screen bg-stone-800 z-50  flex-col gap-10 transition-all 
+      ${navbar ? "left-0 opacity-100 block" : "-left-72 opacity-0 "}
+      lg:hidden
    
       
       `}
