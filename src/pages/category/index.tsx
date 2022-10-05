@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ItemBox from "../../components/layout/ItemBox";
+import Breadcrumb from "../../components/widget/Breadcrumb";
 
 import CategoryTool from "../../components/widget/CategoryTool";
 const fakeData = [
@@ -60,12 +61,7 @@ function Index() {
   return (
     <>
       <main className="w-full h-full bg-stone-100 flex flex-col gap-3 mx-auto pt-24 px-3  lg:max-w-7xl  lg:grid grid-cols-6 xl:max-w-[1440px]">
-        <div className="max-w-xs text-sm breadcrumbs lg:col-span-6">
-          <ul>
-            <li>Long text 1</li>
-            <li>Long text 2</li>
-          </ul>
-        </div>
+        <Breadcrumb />
         <CategoryTool />
 
         <div className="flex flex-col gap-3  lg:max-w-7xl  lg:col-span-5">
