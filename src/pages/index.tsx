@@ -3,8 +3,11 @@ import Head from "next/head";
 import ImageCarousel from "../components/widget/ImageCarousel";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
+
+
   return (
     <>
       <Head>

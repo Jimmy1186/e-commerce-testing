@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export const config = {
-    matcher: '/api/auth/signin',
-  }
-  
+// export const config = {
+//     matcher: '/api/auth/signin',
+//   }
+  export const config = { matcher: ["/api/auth/signin","/admin"] }
 
   
 export function middleware(req: NextRequest) {

@@ -23,6 +23,7 @@
     "daisyui": "^2.31.0",
     "date-fns": "^2.29.3",
     "ecpay_aio_nodejs": "^1.0.2",
+    "formik": "^2.2.9",
     "framer-motion": "^7.5.1",
     "next": "12.3.1",
     "next-auth": "~4.10.3",

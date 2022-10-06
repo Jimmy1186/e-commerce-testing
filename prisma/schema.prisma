@@ -33,7 +33,7 @@ model Account {
     id_token          String? @db.Text
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-    roles             Roles[]
+    // roles             Roles[]
 
     @@unique([provider, providerAccountId])
 }
@@ -57,12 +57,12 @@ model User {
 }
 
 
-model Roles {
-    id        String  @id @default(cuid())
-    role_type String  @db.Char(1)
-    userId    String?
-    account   Account?   @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
+// model Roles {
+//     id        String  @id @default(cuid())
+//     role_type String  @db.Char(1)
+//     userId    String?
+//     account   Account?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
 
 model VerificationToken {
     identifier String
@@ -103,9 +103,9 @@ model Product {
     name        String
     description String
     product_img String?
-    category_id Int
+    category_id Int @unique
 
-    categorys      Product_category? @relation(fields: [category_id], references: [parent_category_id])
+    categorys      Product_category? @relation(fields: [category_id], references: [id])
     product_items  Product_item[]
     product_images Product_image[]
 }
@@ -113,17 +113,17 @@ model Product {
 model Product_category {
     id                 Int                @id @default(autoincrement())
     category_name      String?
-    parent_category_id Int?               @unique
+    parent_category_id Int?               
     parent             Product_category?  @relation("parentCategory", fields: [parent_category_id], references: [id])
     categorys          Product_category[] @relation("parentCategory")
 
-    products   Product[]
+    products   Product?
     variations Variation[]
 }
 
 model Variation {
     id                Int                @id @default(autoincrement())
-    name              String
+    name              String?
     category_id       Int
     categorys         Product_category   @relation(fields: [category_id], references: [id], onDelete: Cascade)
     variation_options Variation_option[]
@@ -131,7 +131,7 @@ model Variation {
 
 model Variation_option {
     id             Int       @id @default(autoincrement())
-    variation_type String
+    variation_type String?
     variation_id   Int       @unique
     variations     Variation @relation(fields: [variation_id], references: [id], onDelete: Cascade)
 
