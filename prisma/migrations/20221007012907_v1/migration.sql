@@ -60,7 +60,7 @@ CREATE TABLE `VerificationToken` (
 -- CreateTable
 CREATE TABLE `Product_configuration` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `product_item_id` INTEGER NOT NULL,
+    `product_item_id` INTEGER NULL,
     `variation_option_id` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
@@ -82,7 +82,6 @@ CREATE TABLE `Product_item` (
     `price` DECIMAL(8, 2) NOT NULL,
     `product_id` INTEGER NOT NULL,
 
-    UNIQUE INDEX `Product_item_product_id_key`(`product_id`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -133,7 +132,7 @@ ALTER TABLE `Account` ADD CONSTRAINT `Account_userId_fkey` FOREIGN KEY (`userId`
 ALTER TABLE `Session` ADD CONSTRAINT `Session_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Product_configuration` ADD CONSTRAINT `Product_configuration_product_item_id_fkey` FOREIGN KEY (`product_item_id`) REFERENCES `Product_item`(`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Product_configuration` ADD CONSTRAINT `Product_configuration_product_item_id_fkey` FOREIGN KEY (`product_item_id`) REFERENCES `Product_item`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Product_configuration` ADD CONSTRAINT `Product_configuration_variation_option_id_fkey` FOREIGN KEY (`variation_option_id`) REFERENCES `Variation_option`(`variation_id`) ON DELETE CASCADE ON UPDATE CASCADE;

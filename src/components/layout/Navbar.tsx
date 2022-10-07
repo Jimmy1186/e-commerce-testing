@@ -15,6 +15,7 @@ function NavList() {
         <li>彈藥</li>
         <li>瞄具</li>
         <li>其他</li>
+        <li><Link href={"/admin"}><a>管理員</a></Link></li>
         <li><Link href={"/api/auth/signin"}><a>登入</a></Link></li>
         <li><Link href={"/api/auth/signout"}><a>登出</a></Link></li>
       </ul>
